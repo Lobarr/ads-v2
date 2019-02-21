@@ -1,3 +1,6 @@
+#ifndef DOUBLE_LINKED_LIST
+#define DOUBLE_LINKED_LIST
+
 template <typename T>
 struct DNode {
   T data;
@@ -26,3 +29,5 @@ class DLinkedList {
     DNode<T>* tail;
     int size;
 };
+
+#endif

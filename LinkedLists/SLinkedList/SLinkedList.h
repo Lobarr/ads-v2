@@ -1,3 +1,6 @@
+#ifndef SINGLE_LINKED_LIST
+#define SINGLE_LINKED_LIST
+
 template <typename T>
 struct SNode {
   T data;
@@ -17,3 +20,5 @@ class SLinkedList {
   private:
     SNode<T>* head;
 };
+
+#endif
