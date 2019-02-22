@@ -14,7 +14,7 @@ class DLinkedList {
     DLinkedList(); 
     ~DLinkedList();
     bool empty() const;
-    int getSize() const;
+    int getCount() const;
     const T front() const; 
     const T back() const;
     void addFront(const T& node); 
@@ -23,11 +23,11 @@ class DLinkedList {
     void removeBack();
     void printAsc() const;
     void printDes() const;
-    T search(T s) const;
+    bool search(T s) const;
   private:
     DNode<T>* head;
     DNode<T>* tail;
-    int size;
+    int count;
 };
 
 #endif

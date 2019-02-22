@@ -17,6 +17,7 @@ class SLinkedList {
     void addFront(const T& node); 
     void removeFront();
     void print() const;
+    bool search(T s) const;
   private:
     SNode<T>* head;
 };

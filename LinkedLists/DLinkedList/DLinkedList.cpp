@@ -4,7 +4,7 @@
 template <typename T>
 DLinkedList<T>::DLinkedList() {
   head = tail = NULL; 
-  size = 0;
+  count = 0;
 }
 
 template <typename T>
@@ -14,12 +14,12 @@ DLinkedList<T>::~DLinkedList() {
 
 template <typename T>
 bool DLinkedList<T>::empty() const {
-  return (size == 0);
+  return (count == 0);
 }
 
 template <typename T>
-int DLinkedList<T>::getSize() const {
-  return size;
+int DLinkedList<T>::getCount() const {
+  return count;
 }
 
 template <typename T>
@@ -48,7 +48,7 @@ void DLinkedList<T>::addFront(const T& e) {
   } else {
     head = tail = newNode;
   }
-  size++;
+  count++;
 }
 
 template <typename T>
@@ -65,7 +65,7 @@ void DLinkedList<T>::addBack(const T& e) {
   } else {
     head = tail = newNode;
   }
-  size++;
+  count++;
 }
 
 template <typename T>
@@ -73,7 +73,7 @@ void DLinkedList<T>::removeFront() {
   DNode<T>* curHead = head;
   head = curHead->next;
   if (curHead != NULL) delete curHead;
-  size--;
+  count--;
 }
 
 template <typename T>
@@ -81,13 +81,13 @@ void DLinkedList<T>::removeBack() {
   DNode<T>* curTail = tail;
   tail = curTail->prev;
   if (curTail != NULL) delete curTail;
-  size--;
+  count--;
 }
 
 template <typename T>
 void DLinkedList<T>::printDes() const {
   DNode<T>* cur = head;
-  int count = getSize();
+  int count = getCount();
   while(count--){
     std::cout << cur->data << std::endl;
     cur = cur->next;
@@ -98,7 +98,7 @@ void DLinkedList<T>::printDes() const {
 template <typename T>
 void DLinkedList<T>::printAsc() const {
   DNode<T>* cur = tail;
-  int count = getSize();
+  int count = getCount();
   while(count--){
     std::cout << cur->data << std::endl;
     cur = cur->prev;
@@ -107,14 +107,12 @@ void DLinkedList<T>::printAsc() const {
 }
 
 template <typename T>
-T  DLinkedList<T>::search(T s) const {
+bool  DLinkedList<T>::search(T s) const {
   DNode<T>* cur = head;
-  int count = getSize();
+  int count = getcount();
   while(--count != 0){
-    if (cur->data == s){
-      return cur->data;
-    }
+    if (cur->data == s) return true;
     cur = cur->next;
   }
-  throw "Can't find element";
+  return false;
 }

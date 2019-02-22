@@ -16,10 +16,14 @@ class CLinkedList {
     const T front() const;
     const T back() const;
     void advance();
-    void add(T& elem);
+    void add(T elem);
     void remove();
+    void print() const;
+    bool search(T s) const;
+    int getCount() const;
   private:
-    CNode* cursor;
+    CNode<T>* cursor;
+    int count;
 };
 
 #endif

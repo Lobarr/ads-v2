@@ -43,4 +43,15 @@ void SLinkedList<T>::print() const {
     std::cout << cur->data << std::endl;
     cur = cur->next;
   }
+  std::cout << std::endl;
+}
+
+
+template <typename T>
+bool SLinkedList<T>::search(T s) const {
+  SNode<T> cur = head;
+  while(cur != NULL){
+    if(cur->data == s) return true;
+  }
+  return false;
 }

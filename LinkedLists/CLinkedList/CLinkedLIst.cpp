@@ -2,7 +2,8 @@
 
 template <typename T>
 CLinkedList<T>::CLinkedList(){
- cursor = NULL;
+  cursor = NULL;
+  count = 0; 
 }
 
 template <typename T>
@@ -31,7 +32,7 @@ void CLinkedList<T>::advance() {
 }
 
 template <typename T>
-void CLinkedList<T>::add(T& elem) {
+void CLinkedList<T>::add(T elem) {
   CNode<T>* newCNode = new CNode<T>;
   newCNode->data = elem;
   if(!empty()){
@@ -41,6 +42,7 @@ void CLinkedList<T>::add(T& elem) {
     newCNode->next = newCNode;
     cursor = newCNode;
   }
+  count++;
 }
 
 template <typename T>
@@ -49,7 +51,35 @@ void CLinkedList<T>::remove() {
   if(old == cursor){
     cursor = NULL;
   } else {
-    old = cursor->next->next;
+    cursor->next = old->next;
   }
   delete old;
+  count--;
+}
+
+template <typename T>
+int CLinkedList<T>::getCount() const {
+  return count;
+}
+
+template <typename T>
+void CLinkedList<T>::print() const {
+  CNode<T>* cur = cursor->next;
+  int count = getCount();
+  while(count--) {
+    std::cout << cur->data << std::endl;
+    cur = cur->next;
+  }
+  std::cout << std::endl;
+}
+
+template <typename T>
+bool CLinkedList<T>::search(T s) const {
+  CNode<T>* cur = cursor->next;
+  int count = getCount();
+  while(count--) {
+    if (cur->data == s) return true;
+    cur = cur->next;
+  }
+  return false;
 }
