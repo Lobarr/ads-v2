@@ -1,3 +1,4 @@
+#include <vector>
 #include "./CLinkedList.h"
 
 template <typename T>
@@ -82,4 +83,17 @@ bool CLinkedList<T>::search(T s) const {
     cur = cur->next;
   }
   return false;
+}
+
+template <typename T>
+void CLinkedList<T>::reverse() {
+  std::vector<T> vector;
+  int count = getCount();
+  while(count--){
+    vector.push_back(front());
+    remove();
+  }
+  for (int i = 0; i < vector.size(); i++) {
+    add(vector.at(i));
+  }
 }

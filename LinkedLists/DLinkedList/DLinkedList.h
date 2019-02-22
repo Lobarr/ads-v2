@@ -23,7 +23,8 @@ class DLinkedList {
     void removeBack();
     void printAsc() const;
     void printDes() const;
-    bool search(T s) const;
+    bool search(const T s) const;
+    void reverse();
   private:
     DNode<T>* head;
     DNode<T>* tail;

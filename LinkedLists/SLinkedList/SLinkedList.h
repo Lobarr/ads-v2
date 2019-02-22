@@ -14,10 +14,11 @@ class SLinkedList {
     ~SLinkedList();
     bool empty() const;
     const T front() const; 
-    void addFront(const T& node); 
+    void addFront(const T node); 
     void removeFront();
     void print() const;
-    bool search(T s) const;
+    bool search(const T s) const;
+    void reverse();
   private:
     SNode<T>* head;
 };

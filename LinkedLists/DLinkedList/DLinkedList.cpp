@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 #include "DLinkedList.h"
 
 template <typename T>
@@ -107,12 +108,25 @@ void DLinkedList<T>::printAsc() const {
 }
 
 template <typename T>
-bool  DLinkedList<T>::search(T s) const {
+bool  DLinkedList<T>::search(const T s) const {
   DNode<T>* cur = head;
-  int count = getcount();
+  int count = getCount();
   while(--count != 0){
     if (cur->data == s) return true;
     cur = cur->next;
   }
   return false;
+}
+
+template <typename T>
+void DLinkedList<T>::reverse() {
+  std::vector<T> vector;
+  int count = getCount();
+  while(count--) {
+    vector.push_back(front());
+    removeFront();
+  }
+  for (int i = 0; i < vector.size(); i++) {
+    addFront(vector.at(i));
+  }
 }

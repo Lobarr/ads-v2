@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 #include "SLinkedList.h"
 
 template <typename T>
@@ -22,7 +23,7 @@ const T SLinkedList<T>::front() const {
 }
 
 template <typename T>
-void SLinkedList<T>::addFront(const T& e) {
+void SLinkedList<T>::addFront(const T e) {
   SNode<T>* newHead = new SNode<T>;
   newHead->data = e;
   newHead->next = head;
@@ -48,10 +49,24 @@ void SLinkedList<T>::print() const {
 
 
 template <typename T>
-bool SLinkedList<T>::search(T s) const {
+bool SLinkedList<T>::search(const T s) const {
   SNode<T> cur = head;
   while(cur != NULL){
     if(cur->data == s) return true;
   }
   return false;
+}
+
+template <typename T>
+void SLinkedList<T>::reverse() {
+  std::vector<T> vector;
+  SNode<T>* cur = head;
+  while(cur != NULL) {
+    vector.push_back(cur->data);
+    cur = cur->next;
+    removeFront();
+  }
+  for (int i = 0; i < vector.size(); i++) {
+    addFront(vector.at(i));
+  }
 }

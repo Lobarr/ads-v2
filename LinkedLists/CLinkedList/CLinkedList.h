@@ -21,6 +21,7 @@ class CLinkedList {
     void print() const;
     bool search(T s) const;
     int getCount() const;
+    void reverse();
   private:
     CNode<T>* cursor;
     int count;
