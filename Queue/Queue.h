@@ -1,20 +1,24 @@
-#ifndef QUEUE_H
-#define QUEUE_H
+#ifndef ARRAYQUEUE_H
+#define ARRAYQUEUE_H
+
+#include "../LinkedLists/CLinkedList/CLinkedList.cpp"
 
 template <typename T>
 class Queue {
   public:
     Queue();
 
-    void enqueue(T input);
-    void dequeue()
-    T top();
+    void push(const T input);
+    void pop()
+    T front();
+    T rear();
     bool empty();
-    int size() const;
+    int getSize() const;
     void print() const;
 
   private:
-  
+    CLinkedList<T> queue;
+    int size;
 };
 
 #endif

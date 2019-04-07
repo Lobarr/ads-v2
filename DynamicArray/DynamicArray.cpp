@@ -19,8 +19,7 @@ template <typename T>
 void DynamicArray<T>::insert(const T& data) {
   if (curSize == maxSize)
     throw "Array is full";
-  list[curSize] = data;
-  curSize++;
+  list[curSize++] = data;
 }
 
 template <typename T>
