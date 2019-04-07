@@ -25,6 +25,7 @@ class DLinkedList {
     void printDes() const;
     bool search(const T s) const;
     void reverse();
+    DNode<T>* at(int index) const;
   private:
     DNode<T>* head;
     DNode<T>* tail;

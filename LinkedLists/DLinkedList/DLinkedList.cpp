@@ -130,3 +130,16 @@ void DLinkedList<T>::reverse() {
     addFront(vector.at(i));
   }
 }
+
+template <typename T>
+DNode<T>* DLinkedList<T>::at(int index) const {
+  DNode<T>* cur = head;
+  int count = getCount();
+  while((index >= 0 && index <= count-1) && (count--)){
+    if(count == index) {
+      return cur;
+    }
+    cur = cur->next;
+  }
+  return NULL;
+}
