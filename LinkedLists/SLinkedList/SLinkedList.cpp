@@ -70,3 +70,8 @@ void SLinkedList<T>::reverse() {
     addFront(vector.at(i));
   }
 }
+
+template <typename T>
+SNode<T>* SLinkedList<T>::getHead() const {
+  return head;
+}

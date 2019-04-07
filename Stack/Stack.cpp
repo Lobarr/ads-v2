@@ -16,7 +16,7 @@ void Stack<T>::pop() {
 template <typename T>
 T Stack<T>::top() {
   if (stack.empty()) throw "Stack Empty";
-  return stack.at(stack.getCount()-1)->data;
+  return stack.getHead()->data;
 }
 
 template <typename T>
@@ -31,5 +31,5 @@ int Stack<T>::size() const {
 
 template <typename T>
 void Stack<T>::print() const {
-  stack.printDes();
+  stack.print();
 }

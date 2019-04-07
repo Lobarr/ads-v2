@@ -19,6 +19,7 @@ class SLinkedList {
     void print() const;
     bool search(const T s) const;
     void reverse();
+    SNode<T>* getHead() const;
   private:
     SNode<T>* head;
 };

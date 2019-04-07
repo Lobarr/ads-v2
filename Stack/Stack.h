@@ -2,7 +2,7 @@
 #define STACK_H
 
 // #include <vector>
-#include "../LinkedLists/DLinkedList/DLinkedList.cpp"
+#include "../LinkedLists/SLinkedList/SLinkedList.cpp"
 #include <iostream>
 
 template <typename T>
@@ -18,7 +18,7 @@ class Stack {
     void print() const;
   
   private:
-    DLinkedList<T> stack;
+    SLinkedList<T> stack;
 };
 
 #endif
