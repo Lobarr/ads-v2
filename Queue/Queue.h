@@ -9,16 +9,15 @@ class Queue {
     Queue();
 
     void push(const T input);
-    void pop()
+    void pop();
     T front();
     T rear();
     bool empty();
     int getSize() const;
-    void print() const;
+    void print();
 
   private:
     CLinkedList<T> queue;
-    int size;
 };
 
 #endif
