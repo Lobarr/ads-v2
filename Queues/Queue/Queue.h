@@ -1,7 +1,7 @@
-#ifndef ARRAYQUEUE_H
-#define ARRAYQUEUE_H
+#ifndef QUEUE_H
+#define QUEUE_H
 
-#include "../LinkedLists/CLinkedList/CLinkedList.cpp"
+#include "../../LinkedLists/CLinkedList/CLinkedList.cpp"
 
 template <typename T>
 class Queue {
