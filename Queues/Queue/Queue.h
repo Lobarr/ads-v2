@@ -10,10 +10,10 @@ class Queue {
 
     void push(const T input);
     void pop();
-    T front();
-    T rear();
-    bool empty();
-    int getSize() const;
+    const T* front() const;
+    const T* rear() const;
+    const bool empty() const;
+    const unsigned int getSize() const;
     void print();
 
   private:

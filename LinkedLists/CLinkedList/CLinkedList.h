@@ -12,19 +12,19 @@ class CLinkedList {
   public:
     CLinkedList();
     ~CLinkedList();
-    bool empty() const;
-    const T front() const;
-    const T back() const;
+    const bool empty() const;
+    const T* front() const;
+    const T* back() const;
     void advance();
-    void add(T elem);
+    void add(const T& elem);
     void remove();
     void print() const;
-    bool search(T s) const;
-    int getCount() const;
+    const bool search(const T& s) const;
+    const unsigned int getCount() const;
     void reverse();
   private:
     CNode<T>* cursor;
-    int count;
+    unsigned int count;
 };
 
 #endif

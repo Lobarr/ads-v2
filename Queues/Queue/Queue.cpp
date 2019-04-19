@@ -16,22 +16,22 @@ void Queue<T>::pop() {
 }
 
 template <typename T>
-T Queue<T>::front() {
+const T* Queue<T>::front() const {
   return queue.front();
 }
 
 template <typename T>
-T Queue<T>::rear() {
+const T* Queue<T>::rear() const {
   return queue.back();
 }
 
 template <typename T>
-bool Queue<T>::empty() {
+const bool Queue<T>::empty() const {
   return queue.empty();
 }
 
 template <typename T>
-int Queue<T>::getSize() const {
+const unsigned int Queue<T>::getSize() const {
   return queue.getCount();
 }
 

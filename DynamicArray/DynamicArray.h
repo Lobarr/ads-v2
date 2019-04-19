@@ -9,15 +9,15 @@ class DynamicArray {
     DynamicArray(const int size);
     ~DynamicArray();
     void insert(const T& data);
-    T remove(const int index);
-    int getSize() const;
+    const T remove(const unsigned int index);
+    const unsigned int getSize() const;
     void print() const;
     void sortAsc();
     void sortDes();
   private:
     T* list;
-    int maxSize;
-    int curSize;
+    unsigned int maxSize;
+    unsigned int curSize;
 };
 
 #endif

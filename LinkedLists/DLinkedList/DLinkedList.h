@@ -13,10 +13,10 @@ class DLinkedList {
   public:
     DLinkedList(); 
     ~DLinkedList();
-    bool empty() const;
-    int getCount() const;
-    const T front() const; 
-    const T back() const;
+    const bool empty() const;
+    const unsigned int getCount() const;
+    const T* front() const; 
+    const T* back() const;
     void addFront(const T& node); 
     void addBack(const T& node);
     void removeFront();
@@ -25,11 +25,11 @@ class DLinkedList {
     void printDes() const;
     bool search(const T s) const;
     void reverse();
-    DNode<T>* at(int index) const;
+    const DNode<T>* at(const int index) const;
   private:
     DNode<T>* head;
     DNode<T>* tail;
-    int count;
+    unsigned int count;
 };
 
 #endif

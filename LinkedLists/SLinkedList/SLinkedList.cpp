@@ -3,9 +3,9 @@
 #include "SLinkedList.h"
 
 template <typename T>
-SLinkedList<T>::SLinkedList() {
-  head = NULL;
-}
+SLinkedList<T>::SLinkedList()
+: head(NULL), count(0)
+{}
 
 template <typename T>
 SLinkedList<T>::~SLinkedList() {
@@ -13,21 +13,22 @@ SLinkedList<T>::~SLinkedList() {
 }
 
 template <typename T>
-bool SLinkedList<T>::empty() const {
+const bool SLinkedList<T>::empty() const {
   return head == NULL;
 }
 
 template <typename T>
-const T SLinkedList<T>::front() const {
+const T* SLinkedList<T>::front() const {
   return head->data;
 }
 
 template <typename T>
-void SLinkedList<T>::addFront(const T e) {
+void SLinkedList<T>::addFront(const T& e) {
   SNode<T>* newHead = new SNode<T>;
   newHead->data = e;
   newHead->next = head;
   head = newHead;
+  count++;
 }
 
 template <typename T>
@@ -35,6 +36,7 @@ void SLinkedList<T>::removeFront() {
   SNode<T>* prevHead = head;
   head = prevHead->next;
   delete prevHead;
+  count--;
 }
 
 template <typename T>
@@ -49,7 +51,7 @@ void SLinkedList<T>::print() const {
 
 
 template <typename T>
-bool SLinkedList<T>::search(const T s) const {
+const bool SLinkedList<T>::search(const T& s) const {
   SNode<T> cur = head;
   while(cur != NULL){
     if(cur->data == s) return true;
@@ -72,6 +74,11 @@ void SLinkedList<T>::reverse() {
 }
 
 template <typename T>
-SNode<T>* SLinkedList<T>::getHead() const {
+const SNode<T>* SLinkedList<T>::getHead() const {
   return head;
+}
+
+template <typename T>
+const unsigned int SLinkedList<T>::getCount() const {
+  return count;
 }

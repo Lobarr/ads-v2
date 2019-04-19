@@ -12,16 +12,18 @@ class SLinkedList {
   public:
     SLinkedList(); 
     ~SLinkedList();
-    bool empty() const;
-    const T front() const; 
-    void addFront(const T node); 
+    const bool empty() const;
+    const T* front() const; 
+    void addFront(const T& node); 
     void removeFront();
     void print() const;
-    bool search(const T s) const;
+    const bool search(const T& s) const;
     void reverse();
-    SNode<T>* getHead() const;
+    const SNode<T>* getHead() const;
+    const unsigned int getCount() const;
   private:
     SNode<T>* head;
+    unsigned int count;
 };
 
 #endif

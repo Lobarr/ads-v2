@@ -12,9 +12,9 @@ class Stack {
 
     void push(const T& input);
     void pop();
-    T top();
-    bool empty();
-    int size() const;
+    const T* top() const;
+    const bool empty() const;
+    const unsigned int size() const;
     void print() const;
   
   private:

@@ -14,18 +14,18 @@ void Stack<T>::pop() {
 }
 
 template <typename T>
-T Stack<T>::top() {
+const T* Stack<T>::top() const {
   if (stack.empty()) throw "Stack Empty";
   return stack.getHead()->data;
 }
 
 template <typename T>
-bool Stack<T>::empty() {
+const bool Stack<T>::empty() const {
   return stack.empty();
 }
 
 template <typename T>
-int Stack<T>::size() const {
+const unsigned int Stack<T>::size() const {
   return stack.getCount();
 }
 

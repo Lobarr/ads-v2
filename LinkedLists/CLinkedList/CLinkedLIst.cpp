@@ -13,17 +13,17 @@ CLinkedList<T>::~CLinkedList(){
 }
 
 template <typename T>
-bool CLinkedList<T>::empty() const {
+const bool CLinkedList<T>::empty() const {
   return cursor == NULL;
 }
 
 template <typename T>
-const T CLinkedList<T>::front() const { 
+const T* CLinkedList<T>::front() const { 
   return cursor->next->data;
 }
 
 template <typename T>
-const T CLinkedList<T>::back() const {
+const T* CLinkedList<T>::back() const {
   return cursor->data;
 }
 
@@ -33,7 +33,7 @@ void CLinkedList<T>::advance() {
 }
 
 template <typename T>
-void CLinkedList<T>::add(T elem) {
+void CLinkedList<T>::add(const T& elem) {
   CNode<T>* newCNode = new CNode<T>;
   newCNode->data = elem;
   if(!empty()){
@@ -59,7 +59,7 @@ void CLinkedList<T>::remove() {
 }
 
 template <typename T>
-int CLinkedList<T>::getCount() const {
+const unsigned int CLinkedList<T>::getCount() const {
   return count;
 }
 
@@ -75,7 +75,7 @@ void CLinkedList<T>::print() const {
 }
 
 template <typename T>
-bool CLinkedList<T>::search(T s) const {
+const bool CLinkedList<T>::search(const T& s) const {
   CNode<T>* cur = cursor->next;
   int count = getCount();
   while(count--) {

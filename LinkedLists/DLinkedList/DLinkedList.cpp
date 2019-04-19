@@ -14,23 +14,23 @@ DLinkedList<T>::~DLinkedList() {
 }
 
 template <typename T>
-bool DLinkedList<T>::empty() const {
+const bool DLinkedList<T>::empty() const {
   return (count == 0);
 }
 
 template <typename T>
-int DLinkedList<T>::getCount() const {
+const unsigned int DLinkedList<T>::getCount() const {
   return count;
 }
 
 template <typename T>
-const T DLinkedList<T>::front() const {
+const T* DLinkedList<T>::front() const {
   assert(!empty());
   return head->data;
 }
 
 template <typename T>
-const T DLinkedList<T>::back() const {
+const T* DLinkedList<T>::back() const {
   assert(!empty());
   return tail->data;
 }
@@ -132,9 +132,9 @@ void DLinkedList<T>::reverse() {
 }
 
 template <typename T>
-DNode<T>* DLinkedList<T>::at(int index) const {
+const DNode<T>* DLinkedList<T>::at(const int index) const {
   DNode<T>* cur = head;
-  int count = getCount();
+  unsigned int count = getCount();
   while((index >= 0 && index <= count-1) && (count--)){
     if(count == index) {
       return cur;

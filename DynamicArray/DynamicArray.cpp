@@ -23,7 +23,7 @@ void DynamicArray<T>::insert(const T& data) {
 }
 
 template <typename T>
-T DynamicArray<T>::remove(const int index) {
+const T DynamicArray<T>::remove(const unsigned int index) {
   if (index > maxSize-1)
     throw "Index out of range";
   T cur = list[index];
@@ -35,7 +35,7 @@ T DynamicArray<T>::remove(const int index) {
 }
 
 template <typename T>
-int DynamicArray<T>::getSize() const {
+const unsigned int DynamicArray<T>::getSize() const {
   return curSize;
 }
 

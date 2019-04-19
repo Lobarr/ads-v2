@@ -4,12 +4,12 @@ template <typename T>
 Deque<T>::Deque() {}
 
 template <typename T>
-void Deque<T>::pushFront(const T input) {
+void Deque<T>::pushFront(const T& input) {
   queue.addFront(input);
 }
 
 template <typename T>
-void Deque<T>::pushBack(const T input) {
+void Deque<T>::pushBack(const T& input) {
   queue.addBack(input);
 }
 
@@ -26,26 +26,26 @@ void Deque<T>::popBack() {
 }
 
 template <typename T>
-T Deque<T>::front() const {
+const T* Deque<T>::front() const {
   return queue.front();
 }
 
 template <typename T>
-T Deque<T>::back() const {
+const T* Deque<T>::back() const {
   return queue.back();
 }
 
 template <typename T>
-bool Deque<T>::empty() {
+const bool Deque<T>::empty() const {
   return queue.empty();
 }
 
 template <typename T>
-int Deque<T>::getSize() const {
+const unsigned int Deque<T>::getSize() const {
   return queue.getCount();
 }
 
 template <typename T>
-void Deque<T>::print() {
+void Deque<T>::print() const {
   queue.printAsc();
 }
