@@ -2,7 +2,7 @@
 #define CIRCLE_LINKED_LIST
 
 template <typename T>
-struct CNode {
+struct LinkCNode {
   T data;
   CNode* next;
 };
