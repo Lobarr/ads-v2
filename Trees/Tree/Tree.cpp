@@ -1,8 +1,9 @@
 #include "./Tree.h"
 
 template <typename T>
-Node<T>::Node(T& d) {
+Node<T>::Node(T& d, Node<T>* p) {
   data = d;
+  parent = p
 }
 
 template <typename T>

@@ -8,7 +8,7 @@
 template <typename T>
 class Node {
   public:
-    Node(T& d);
+    Node(T& d, Node<T>* p = NULL);
     T* operator*();
     const Node<T>* getParent() const;
     const std::vector<Node<T>*> getChildren() const;
