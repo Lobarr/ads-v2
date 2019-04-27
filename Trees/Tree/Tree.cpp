@@ -1,8 +1,13 @@
 #include "./Tree.h"
 
 template <typename T>
-T* Node<T>::operator*() const {
-  return data;
+Node<T>::Node(T& d) {
+  data = d;
+}
+
+template <typename T>
+T* Node<T>::operator*() {
+  return &data;
 }
 
 template <typename T>
@@ -26,7 +31,7 @@ const bool Node<T>::isLeaf() const {
 }
 
 template <typename T>
-Tree<T>::Tree(const Node<T>& r = NULL) 
+Tree<T>::Tree(const Node<T>& r) 
 : root(r)
 {}
 
@@ -56,9 +61,45 @@ int Tree<T>::depth(const Node<T>& n) {
   return 1 + depth(n->getParent());
 }
 
+// template <typename T>
+// int Tree<T>::height(const Node<T>& n) {
+//   if (n->isLeaf()) return 0;
+//   int h = 0;
+//   std::vector<Node<T>*>::const_iterator iter;
+//   std::vector<Node<T>*> children = n->getChildren();
+//   for(iter = children.begin(); iter != children.end(); iter++) {
+//     h = std::max(h, height(*iter));
+//   }
+//   return 1 + h;
+// } 
+
 template <typename T>
-int Tree<T>::height(const Node<T>& n) {
-  if (n->isLeaf()) return 0;
-  int h = 0;
-  
+void Tree<T>::preOrderPrint(const Node<T>& n) const {
+  std::cout << *n;
+  for (Iterator iter = n.children().begin(); iter != n.children().end(); iter++) {
+    std::cout << " ";
+    preorderPrint(*iter);
+  }
+}
+
+template <typename T>
+void Tree<T>::preOrderParenPrint(const Node<T>& n) const {
+  std::cout << *n;
+  if(!n.isLeaf()) {
+    std::cout << "( ";
+    for(Iterator iter = n.children().begin(); iter != n.children().end(); iter++) {
+      if(iter != n.children().begin()) cout << " ";
+      preorderParenPrint(*iter);
+    }
+    cout << " )";
+  }
+}
+
+template <typename T>
+void Tree<T>::postOrderPrint(const Node<T>& n) const {
+  for (Iterator iter = n.children().begin(); iter != n.children().end(); iter++) {
+    std::cout << " ";
+    preorderPrint(*iter);
+  }
+  std::cout << *n;
 }
