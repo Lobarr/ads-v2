@@ -9,7 +9,9 @@ SLinkedList<T>::SLinkedList()
 
 template <typename T>
 SLinkedList<T>::~SLinkedList() {
-  while(!empty()) removeFront();
+  while (!empty()) {
+    removeFront();    
+  } 
 }
 
 template <typename T>
@@ -54,7 +56,9 @@ template <typename T>
 const bool SLinkedList<T>::search(const T& s) const {
   SNode<T> cur = head;
   while(cur != NULL){
-    if(cur->data == s) return true;
+    if(cur->data == s) {
+      return true;
+    }
   }
   return false;
 }

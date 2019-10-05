@@ -4,7 +4,6 @@
 template <typename T>
 CLinkedList<T>::CLinkedList(){
   cursor = NULL;
-  count = 0; 
 }
 
 template <typename T>
@@ -18,12 +17,12 @@ const bool CLinkedList<T>::empty() const {
 }
 
 template <typename T>
-const T* CLinkedList<T>::front() const { 
+const T CLinkedList<T>::front() const { 
   return cursor->next->data;
 }
 
 template <typename T>
-const T* CLinkedList<T>::back() const {
+const T CLinkedList<T>::back() const {
   return cursor->data;
 }
 
@@ -40,10 +39,9 @@ void CLinkedList<T>::add(const T& elem) {
     newCNode->next = cursor->next;
     cursor->next = newCNode;
   } else {
-    newCNode->next = newCNode;
+    newCNode->next = newCNode; // point to itself
     cursor = newCNode;
   }
-  count++;
 }
 
 template <typename T>
@@ -55,19 +53,12 @@ void CLinkedList<T>::remove() {
     cursor->next = old->next;
   }
   delete old;
-  count--;
-}
-
-template <typename T>
-const unsigned int CLinkedList<T>::getCount() const {
-  return count;
 }
 
 template <typename T>
 void CLinkedList<T>::print() const {
   CNode<T>* cur = cursor->next;
-  int count = getCount();
-  while(count--) {
+  while(cur != cursor) {
     std::cout << cur->data << std::endl;
     cur = cur->next;
   }
@@ -75,23 +66,26 @@ void CLinkedList<T>::print() const {
 }
 
 template <typename T>
-const bool CLinkedList<T>::search(const T& s) const {
+CNode<T>* CLinkedList<T>::search(const T& s) const {
   CNode<T>* cur = cursor->next;
-  int count = getCount();
-  while(count--) {
-    if (cur->data == s) return true;
+  while(cur != cursor) {
+    if (cur->data == s) {
+      return cur;
+    }
     cur = cur->next;
   }
-  return false;
+  return NULL;
 }
 
 template <typename T>
 void CLinkedList<T>::reverse() {
   std::vector<T> vector;
-  int count = getCount();
-  while(count--){
-    vector.push_back(front());
+  CNode<T>* cur = cursor->next;
+  while(cur != cursor){
+    T temp = front();
+    vector.push_back(temp);
     remove();
+    cur = cur->next;
   }
   for (int i = 0; i < vector.size(); i++) {
     add(vector.at(i));

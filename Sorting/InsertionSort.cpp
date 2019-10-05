@@ -7,7 +7,7 @@ void insertionSortAsc(T& arr, const unsigned int size) {
   for(int i = 0; i < size; i++){
     T cur = arr[i];
     int j = i-1;
-    while((j >= 0) && (arr[j] > cur)){
+    while((j >= 0) && (arr[j] > cur)) {
       arr[j + 1] = arr[j];
       j--;
     }

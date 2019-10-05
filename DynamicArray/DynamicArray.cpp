@@ -7,7 +7,7 @@ template <typename T>
 DynamicArray<T>::DynamicArray(const int size)
 : maxSize(size), curSize(0)
 {
-  list = new int[size];
+  list = new T[size];
 }
 
 template <typename T>
@@ -17,17 +17,19 @@ DynamicArray<T>::~DynamicArray() {
 
 template <typename T>
 void DynamicArray<T>::insert(const T& data) {
-  if (curSize == maxSize)
+  if (curSize == maxSize) {
     throw "Array is full";
+  }
   list[curSize++] = data;
 }
 
 template <typename T>
 const T DynamicArray<T>::remove(const unsigned int index) {
-  if (index > maxSize-1)
+  if (index < 0 || index > maxSize - 1) {
     throw "Index out of range";
+  }
   T cur = list[index];
-  for(int i = index + 1; i < curSize; i++ ){
+  for (int i = index + 1; i < curSize; i++ ) {
     list[i - 1] = list[i];
   }
   curSize--;
@@ -41,8 +43,9 @@ const unsigned int DynamicArray<T>::getSize() const {
 
 template <typename T>
 void DynamicArray<T>::print() const {
-  for(int i = 0; i < curSize; i++)
+  for (int i = 0; i < curSize; i++) {
     std::cout << list[i] << std::endl;
+  }
 }
 
 template <typename T>

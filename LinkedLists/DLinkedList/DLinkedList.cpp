@@ -10,12 +10,14 @@ DLinkedList<T>::DLinkedList() {
 
 template <typename T>
 DLinkedList<T>::~DLinkedList() {
-  while(!empty()) removeFront();
+  while(!empty()) {
+    removeFront();
+  }
 }
 
 template <typename T>
 const bool DLinkedList<T>::empty() const {
-  return (count == 0);
+  return count == 0;
 }
 
 template <typename T>
@@ -73,7 +75,9 @@ template <typename T>
 void DLinkedList<T>::removeFront() {
   DNode<T>* curHead = head;
   head = curHead->next;
-  if (curHead != NULL) delete curHead;
+  if (curHead != NULL) {
+    delete curHead;
+  }
   count--;
 }
 
@@ -81,15 +85,16 @@ template <typename T>
 void DLinkedList<T>::removeBack() {
   DNode<T>* curTail = tail;
   tail = curTail->prev;
-  if (curTail != NULL) delete curTail;
+  if (curTail != NULL) {
+    delete curTail;
+  }
   count--;
 }
 
 template <typename T>
 void DLinkedList<T>::printDes() const {
   DNode<T>* cur = head;
-  int count = getCount();
-  while(count--){
+  while(cur != NULL){
     std::cout << cur->data << std::endl;
     cur = cur->next;
   }
@@ -99,8 +104,7 @@ void DLinkedList<T>::printDes() const {
 template <typename T>
 void DLinkedList<T>::printAsc() const {
   DNode<T>* cur = tail;
-  int count = getCount();
-  while(count--){
+  while(cur != NULL){
     std::cout << cur->data << std::endl;
     cur = cur->prev;
   }
@@ -110,9 +114,10 @@ void DLinkedList<T>::printAsc() const {
 template <typename T>
 bool  DLinkedList<T>::search(const T s) const {
   DNode<T>* cur = head;
-  int count = getCount();
-  while(--count != 0){
-    if (cur->data == s) return true;
+  while(cur != NULL){
+    if (cur->data == s) {
+      return true;
+    }
     cur = cur->next;
   }
   return false;
@@ -121,7 +126,7 @@ bool  DLinkedList<T>::search(const T s) const {
 template <typename T>
 void DLinkedList<T>::reverse() {
   std::vector<T> vector;
-  int count = getCount();
+  unsigned int count = getCount();
   while(count--) {
     vector.push_back(front());
     removeFront();
@@ -134,8 +139,8 @@ void DLinkedList<T>::reverse() {
 template <typename T>
 const DNode<T>* DLinkedList<T>::at(const int index) const {
   DNode<T>* cur = head;
-  unsigned int count = getCount();
-  while((index >= 0 && index <= count-1) && (count--)){
+  unsigned int count = getCount()-1;
+  while((index >= 0 && index <= count) && (count--)){
     if(count == index) {
       return cur;
     }

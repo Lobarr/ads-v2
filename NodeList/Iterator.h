@@ -4,8 +4,7 @@
 #include "./NodeListADT.h"
 #include "./Node.h"
 
-namespace NodeList
-{
+namespace NodeList {
   template <typename T>
   class Iterator {
     public:
