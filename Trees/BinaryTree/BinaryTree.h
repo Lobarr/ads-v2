@@ -3,7 +3,7 @@
 
 template <typename T>
 class BNode {
-  public:
+public:
     BNode(T& d);
     BNode(T& d, BNode<T>* l, BNode<T>* r, BNode<T>* p);
     const T getData() const;
@@ -15,16 +15,16 @@ class BNode {
     void setRight(BNode<T>& n);
     const bool isRoot() const;
     const bool isLeaf() const;
-  private:
+private:
     BNode<T>* left;
     BNode<T>* right;
-    bNode<T>* parent;
+    BNode<T>* parent;
     T data;
 };
 
 template <typename T>
 class BinaryTree {
-  public:
+public:
     BinaryTree();
     BinaryTree(BNode<T>& n);
     const bool empty() const;
@@ -35,9 +35,9 @@ class BinaryTree {
     const BNode<T>* search(T& d) const;
     void preOrderPrint() const;
     void postOrderPrint() const;
-  private:
+private:
     BNode<T>* root;
     int size;
 };
 
-#endif 
+#endif
